@@ -31,8 +31,8 @@
 ### Articles
 - GET `{{base_url}}/api/admin/articles` - list all articles (admin required)
 - POST `{{base_url}}/api/admin/articles` - create one article related to the current Author (found by the current User id) (admin required)
-- PUT `{{base_url}}/api/admin/articles/:id` - update one Author if the current logged User is the Author (admin required)
-- DELETE `{{base_url}}/api/admin/articles/:id` - delete one Author if the current logged User is the Author (admin required)
+- PUT `{{base_url}}/api/admin/articles/:id` - update the Author that was found by id if the current 'Admin User' is related to that Author (admin required)
+- DELETE `{{base_url}}/api/admin/articles/:id` - deletes the Author that was found by id if the current 'Admin User' is related to that Author (admin required)
 - GET `{{base_url}}/api/articles/:id` - Find one Article by id, shows the entire Article if logged in, if not, it will show only the first paragraph
 - GET `{{base_url}}/api/articles?category=:slug`- Find all articles related to one category
 
