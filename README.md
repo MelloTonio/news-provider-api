@@ -33,7 +33,7 @@
 - POST `{{base_url}}/api/admin/articles` - create one article related to the current Author (found by the current User id) (admin required)
 - PUT `{{base_url}}/api/admin/articles/:id` - update one Author if the current logged User is the Author (admin required)
 - DELETE `{{base_url}}/api/admin/articles/:id` - delete one Author if the current logged User is the Author (admin required)
-- GET `{{base_url}}/api/articles/:id` - Find one Article by id, shows the entire Article if logged in, if not logged it will show only the first paragraph
+- GET `{{base_url}}/api/articles/:id` - Find one Article by id, shows the entire Article if logged in, if not, it will show only the first paragraph
 - GET `{{base_url}}/api/articles?category=:slug`- Find all articles related to one category
 
 
