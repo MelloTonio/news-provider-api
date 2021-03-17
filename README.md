@@ -9,11 +9,10 @@
 
 ## Rules
 - The User has a field "isAdmin" that is automatically set to 0 (not an admin) with a query hook
-- A User is not necessarily a author, but an Author is necessarily a User (other Admins cannot change it)
+- A User is not necessarily a author, but an Author is necessarily a Admin User (Admins cannot delete or update Authors that don't reference his 'user_id')
 - Only Users with `"isAdmin" == 1` can become an Author or create Articles
 - The Author has a reference to the User, An admin User cannot create an Author that don't reference himself.
-- An admin User cannot delete or update an Author other than himself.
-
+- An Admin User cannot delete or update an Author other than himself. (easily changeable, I figured it wouldn't make sense for an author to be able to delete posts and delete other authors)
 
 ## Routes
 - base_url: http://localhost:3001
