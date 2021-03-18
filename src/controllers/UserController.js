@@ -29,7 +29,7 @@ class UserController {
     try {
 
       var email = req.body.email
-      await User.query().delete().where('email',"=", email);
+      await User.query().delete().where({ email: email })
 
       return res.json({ "success": true });
 
