@@ -10,6 +10,11 @@ class ArticleController {
  
       // Find the author related to the user id (if exists)
       const ArticleAuthor = await Author.query().findOne({ user_id: id });
+
+      if (!ArticleAuthor) {
+        return res.status(404).json({error: "You must be an Author to create an article!"})
+      }
+
       const author_id = ArticleAuthor.id
 
       await Article.query().insert({ category, title, summary, body, firstParagraph, author_id, user_id: id })
@@ -18,7 +23,7 @@ class ArticleController {
 
     } catch (error) {
       console.log(error)
-      res.json({"error": error})
+      res.status(400).json({"error": error})
     }
   }
 
@@ -29,7 +34,7 @@ class ArticleController {
       return res.json(allArticles);
 
     } catch (error) {
-      return res.json(error);
+      return res.status(400).json(error);
     }
   }
 
@@ -53,7 +58,7 @@ class ArticleController {
         return res.json({error: "You must be the author of the article to update it."});
   
       } catch (error) {
-        return res.json(error);
+        return res.status(400).json(error);
       }
   }
 
@@ -78,7 +83,7 @@ class ArticleController {
         return res.json({error: "You must be the author of the article to delete it."});
 
     } catch (error) {
-      return res.json(error);
+      return res.status(400).json(error);
     }
   }
 
@@ -100,7 +105,7 @@ class ArticleController {
 
     }catch(error){
         console.log(error)
-        res.json({ error: "Article not found!" })
+        res.status(400).json({ error: "Article not found!" })
     }
 
   }
@@ -128,7 +133,7 @@ class ArticleController {
     res.json(format)
     }catch(e){
         console.log(e)
-        res.json({errors: e})
+        res.status(400).json({errors: e})
     }
   }
 

@@ -15,7 +15,7 @@ class AuthorController {
 
     } catch (error) {
       console.log(error)
-      res.json({"error": error})
+      res.status(400).json({"error": error})
     }
   }
 
@@ -26,7 +26,7 @@ class AuthorController {
       return res.json(authorUser);
 
     } catch (error) {
-      return res.json(error);
+      return res.status(400).json(error);
     }
   }
 
@@ -45,7 +45,7 @@ class AuthorController {
         return res.json({ numUpdated });
   
       } catch (error) {
-        return res.json(error);
+        return res.status(400).json(error);
       }
   }
 
@@ -63,7 +63,7 @@ class AuthorController {
      return res.json({ numDeleted });
 
     } catch (error) {
-      return res.json(error);
+      return res.status(400).json(error);
     }
   }
 

@@ -41,7 +41,7 @@ class TokenController {
             return res.status(200).end();
         } else {
           // response is OutgoingMessage object that server response http request
-          return res.json({success: false, message: 'passwords do not match'});
+          return res.status(400).json({success: false, message: 'passwords dont match'});
         }
       });
 

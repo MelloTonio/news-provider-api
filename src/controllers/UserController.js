@@ -10,6 +10,7 @@ class UserController {
       return res.json(req.body);
     } catch (error) {
       console.log(error)
+      res.status(400).json({error: "Error creating user" })
     }
   }
 
