@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 import UserController from '../controllers/UserController'
 import TokenController from '../controllers/TokenController'
-import IsLogged from '../middlewares/IsLogged'
+import AdminRequired from '../middlewares/AdminRequired'
 
 const router = new Router();
 
@@ -12,9 +12,7 @@ router.post('/login', TokenController.store);
 
 
 // ADMIN ROUTES
-router.get('/', IsLogged, UserController.index);
-// router.put('/:id', loginRequired, AlunoController.update);
-// router.get('/:id', AlunoController.show);
-// router.delete('/:id', loginRequired, AlunoController.delete);
+router.get('/', AdminRequired, UserController.index);
+router.delete('/:email', AdminRequired, UserController.delete);
 
 export default router;
