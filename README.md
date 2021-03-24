@@ -1,4 +1,4 @@
-# Jungle Devs - Node Challenge #001
+# News-provider-api
 
 ## Instructions to Run
 
